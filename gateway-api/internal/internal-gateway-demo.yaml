@@ -1,0 +1,13 @@
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: Gateway
+metadata:
+  name: demo-web-gw-internal
+spec:
+  gatewayClassName: gke-l7-rilb
+  listeners:  
+  - protocol: HTTP
+    port: 80
+    name: demo-web-gw
+    allowedRoutes:
+      namespaces:
+        from: All

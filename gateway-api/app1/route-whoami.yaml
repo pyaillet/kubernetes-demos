@@ -1,0 +1,15 @@
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: HTTPRoute
+metadata:
+  name: app1-external
+  namespace: app1
+spec:
+  parentRefs:
+  - name: demo-web-gw-external
+    namespace: default
+  hostnames:
+  - "app1.34.111.220.34.nip.io"
+  rules:
+  - backendRefs:
+    - name: app1
+      port: 80
